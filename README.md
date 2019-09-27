@@ -16,5 +16,5 @@ end
 - At runtime enable tracing module by runing in iex console:
 
 ```elixir
-SherlockMem.enable(MyModule)
+SherlockMem.enable(Slack)
 ```
