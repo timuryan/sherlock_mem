@@ -5,7 +5,7 @@ defmodule SherlockMem.MixProject do
     [
       app: :sherlock_mem,
       version: "0.1.0",
-      elixir: "~> 1.6",
+      elixir: "~> 1.7",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
       description: "Memory tracer for GenServer",
@@ -22,7 +22,8 @@ defmodule SherlockMem.MixProject do
 
   defp deps do
     [
-      {:recon, "~> 2.5"}
+      {:recon, "~> 2.5"},
+      {:ex_doc, ">= 0.0.0", only: :dev}
     ]
   end
 
