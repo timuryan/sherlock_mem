@@ -51,8 +51,6 @@ defmodule SherlockMem do
       end
 
       def check_module(module) do
-        Logger.info("check_module #{inspect(module)}")
-
         case Application.get_env(:sherlock_mem, :module) do
           ^module -> true
           _ -> false
