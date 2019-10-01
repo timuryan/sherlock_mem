@@ -22,7 +22,7 @@ defmodule SherlockMem do
       def init(state) do
         print_mem_before("init_before", state)
         response = super(state)
-        print_mem_after("init_after", state)
+        print_mem_after("init_after ", response)
         response
       end
 
@@ -31,7 +31,7 @@ defmodule SherlockMem do
 
         response = super(msg, state)
 
-        print_mem_after("cast_after", msg)
+        print_mem_after("cast_after ", msg)
 
         response
       end
@@ -39,14 +39,14 @@ defmodule SherlockMem do
       def handle_call(msg, from, state) do
         print_mem_before("call_before", msg)
         response = super(msg, from, state)
-        print_mem_after("call_after", msg)
+        print_mem_after("call_after ", msg)
         response
       end
 
       def handle_info(msg, state) do
         print_mem_before("info_before", msg)
         response = super(msg, state)
-        print_mem_after("info_after", msg)
+        print_mem_after("info_after ", msg)
         response
       end
 
@@ -73,14 +73,14 @@ defmodule SherlockMem do
 
       defp print_mem_after(context) do
         if check_module(__MODULE__) do
-          Logger.info("print_mem_after #{inspect(self())} #{mem()} #{inspect(context)}")
+          Logger.info("print_mem_after  #{inspect(self())} #{mem()} #{inspect(context)}")
         end
       end
 
       defp print_mem_after(context, msg) do
         if check_module(__MODULE__) do
           Logger.info(
-            "print_mem_after #{inspect(self())} #{mem()} #{inspect(context)} #{inspect(msg)}"
+            "print_mem_after  #{inspect(self())} #{mem()} #{inspect(context)} #{inspect(msg)}"
           )
         end
       end
